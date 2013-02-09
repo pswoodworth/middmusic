@@ -1,0 +1,15 @@
+body{
+	margin: 0px;
+	background-color: #eee;
+	height: 100%;
+	width: 100%;
+}
+
+.nav{
+	position: fixed;
+	width: 180px;
+	background-color: rgb(51,102,153);
+	right: 0px;
+
+}
+

@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title>Middlebury Music United</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+	<div class="nav">
+		<img id="logo" src="/media/img/mmu.png">
+		<ul class="menu">
+			<li id="bands">bands</li>
+			<li id="events">events</li>
+			<li id="classified">classified</li>
+			<li id="faq">FAQs</li>
+		</ul>
+	</div>
+
+	<div class="container">
+		<div class="wrapper" id="bands">
+			{% if band_list %}
+				{% for band in band_list %}
+					<div class="item" id="{{ band.id }}">
+						{{ band.name }}<br>
+						{{ band.description }}<br>
+						{% if event.photo != '' %}
+							<img src="media/{{ band.photo }}">
+						{% endif %}
+						{{ band.email }}<br>
+						{{ band.website }}<br>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		<div class="wrapper" id="events">
+			{% if event_list_today %}
+			<h2>Today</h2>
+				{% for event in event_list_today %}
+					<div class="item" id="{{ event.id }}">
+						{{ event.name }}<br>
+						{{ event.description }}<br>
+						{% if event.photo != '' %}
+							<img src="media/{{ event.photo }}">
+						{% endif %}
+						{{ event.email }}<br>
+						{{ event.website }}<br>
+					</div>
+				{% endfor %}
+			{% endif %}
+
+			{% if event_list_tomorrow %}
+			<h2>Tomorrow</h2>
+				{% for event in event_list_tomorrow %}
+					<div class="item" id="{{ event.id }}">
+						{{ event.name }}<br>
+						{{ event.description }}<br>
+						{% if event.photo != '' %}
+							<img src="media/{{ event.photo }}">
+						{% endif %}
+						{{ event.email }}<br>
+						{{ event.website }}<br>
+					</div>
+				{% endfor %}
+			{% endif %}
+
+			{% if event_list_later %}
+			<h2>Later</h2>
+				{% for event in event_list_later %}
+					<div class="item" id="{{ event.id }}">
+						{{ event.name }}<br>
+						{{ event.description }}<br>
+						{% if event.photo != '' %}
+							<img src="media/{{ event.photo }}">
+						{% endif %}
+						{{ event.email }}<br>
+						{{ event.website }}<br>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		<div class="wrapper" id="classified">
+			{% if classified_list %}
+				{% for classified in classified_list %}
+					<div class="item" id="{{ classified.id }}">
+						{{ classified.title }}<br>
+						{{ classified.description }}<br>
+						{{ classified.email }}<br>
+						{{ classified.website }}<br>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		<div class="wrapper" id="faq">
+			{% if faq_list %}
+				{% for faq in faq_list %}
+					<div class="item" id="{{ faq.id }}">
+						{{ faq.question }}<br>
+						{{ faq.answer }}<br>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+	</div>
+</body>
+</html>
